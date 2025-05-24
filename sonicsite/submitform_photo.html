@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Place Your Order</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #f2f5f9 0%, #e8eef7 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .order-form {
+            background: #fff;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(42, 122, 226, 0.08), 0 4px 12px rgba(0, 0, 0, 0.04);
+            max-width: 480px;
+            width: 100%;
+            border: 1px solid rgba(42, 122, 226, 0.06);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .order-form::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #2a7ae2, #4a8cec);
+        }
+
+        .order-form h2 {
+            text-align: center;
+            color: #1a1a1a;
+            margin-bottom: 2rem;
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .order-form label {
+            font-weight: 500;
+            display: block;
+            color: #374151;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+            letter-spacing: 0.01em;
+        }
+
+        .order-form input,
+        .order-form textarea,
+        .order-form select {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            font-size: 1rem;
+            color: #1a1a1a;
+            background: #fff;
+            transition: all 0.2s ease;
+            resize: vertical;
+            outline: none;
+        }
+
+        .order-form input:focus,
+        .order-form textarea:focus,
+        .order-form select:focus {
+            border-color: #2a7ae2;
+            box-shadow: 0 0 0 3px rgba(42, 122, 226, 0.1);
+            transform: translateY(-1px);
+        }
+
+        .order-form input:hover,
+        .order-form textarea:hover,
+        .order-form select:hover {
+            border-color: #d1d5db;
+        }
+
+        .order-form textarea {
+            min-height: 120px;
+            font-family: inherit;
+        }
+
+        .order-form textarea::placeholder,
+        .order-form input::placeholder {
+            color: #9ca3af;
+        }
+
+        .order-form select {
+            cursor: pointer;
+        }
+
+        .order-form select option {
+            padding: 8px;
+        }
+
+        .order-form button {
+            background: linear-gradient(135deg, #2a7ae2 0%, #4a8cec 100%);
+            color: white;
+            border: none;
+            padding: 16px 24px;
+            margin-top: 1rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            letter-spacing: 0.01em;
+        }
+
+        .order-form button:hover {
+            background: linear-gradient(135deg, #1a5fc0 0%, #3a7ce0 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(42, 122, 226, 0.2);
+        }
+
+        .order-form button:active {
+            transform: translateY(-1px);
+        }
+
+        .note {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-top: 1.5rem;
+            text-align: center;
+            padding: 12px;
+            background: #f9fafb;
+            border-radius: 8px;
+            border-left: 3px solid #2a7ae2;
+        }
+
+        @media (max-width: 480px) {
+            .order-form {
+                padding: 2rem 1.5rem;
+                margin: 10px;
+            }
+
+            .order-form h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Smooth animations */
+        .order-form {
+            animation: slideIn 0.4s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <form class="order-form" action="https://formsubmit.co/captur.nj@gmail.com" method="POST">
+        <h2>Place Your Order</h2>
+
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" name="email" id="email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="location">Location</label>
+            <input type="text" name="location" id="location" placeholder="City, State/Country" required>
+        </div>
+
+        <div class="form-group">
+            <label for="order">Order Details</label>
+            <textarea name="order" id="order" placeholder="Describe your order in detail..." required></textarea>
+        </div>
+
+        <!-- Optional: prevent spam -->
+        <input type="text" name="_honey" style="display:none">
+
+        <!-- Optional: redirect to thank-you page -->
+        <input type="hidden" name="_next" value="thank-you.html">
+
+        <!-- Optional: email subject -->
+        <input type="hidden" name="_subject" value="New Order Submission">
+
+        <button type="submit">Submit Order</button>
+
+        <div class="note">
+            You'll receive a confirmation email after your order has been recognized.
+        </div>
+    </form>
+</body>
+
+</html>
