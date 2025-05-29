@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="stylesheet.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <title>Terms of Service - Captur</title>
+  <style>
+    .privacy-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 100px 2rem 2rem;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    .privacy-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .privacy-title {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #000;
+    }
+
+    .effective-date {
+      font-size: 1.1rem;
+      color: #666;
+      margin-bottom: 2rem;
+    }
+
+    .privacy-section {
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    .privacy-section:nth-child(even) {
+      animation-delay: 0.1s;
+    }
+
+    .privacy-section:nth-child(odd) {
+      animation-delay: 0.2s;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #000;
+      border-left: 4px solid #007bff;
+      padding-left: 1rem;
+    }
+
+    .section-content {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .privacy-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .privacy-list li {
+      margin-bottom: 0.5rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .privacy-list li::before {
+      content: "•";
+      color: #007bff;
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    .contact-info {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      padding: 2rem;
+      border-radius: 10px;
+      margin: 2rem 0;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .contact-email {
+      color: #007bff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    .contact-email:hover {
+      text-decoration: underline;
+    }
+
+    .back-to-home {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #007bff;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,123,255,0.3);
+      z-index: 1000;
+    }
+
+    .back-to-home:hover {
+      background: #0056b3;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,123,255,0.4);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .privacy-content {
+        padding: 80px 1rem 2rem;
+      }
+      
+      .privacy-title {
+        font-size: 2.5rem;
+      }
+      
+      .back-to-home {
+        top: 10px;
+        right: 10px;
+        padding: 10px 16px;
+        font-size: 0.9rem;
+      }
+    }
+
+    /* Navbar styles to match original */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 1rem 2rem;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      transition: all 0.3s ease;
+    }
+
+    .biglogo {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #000;
+      text-decoration: none;
+    }
+
+    .navbar {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .navbar a {
+      color: #000;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .navbar a:hover {
+      color: #007bff;
+    }
+
+    .icons {
+      display: none;
+    }
+
+    #check {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .icons {
+        display: block;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+
+      .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 0;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        overflow: hidden;
+        transition: height 0.3s ease;
+        flex-direction: column;
+        padding: 0;
+      }
+
+      #check:checked ~ .navbar {
+        height: 300px;
+        padding: 2rem;
+      }
+
+      .navbar a {
+        display: block;
+        margin: 1rem 0;
+        transform: translateX(-100px);
+        transition: all 0.3s ease;
+        opacity: 0;
+      }
+
+      #check:checked ~ .navbar a {
+        transform: translateX(0);
+        opacity: 1;
+      }
+
+      #menu-icon {
+        display: block;
+      }
+
+      #close-icon {
+        display: none;
+      }
+
+      #check:checked ~ .icons #menu-icon {
+        display: none;
+      }
+
+      #check:checked ~ .icons #close-icon {
+        display: block;
+      }
+    }
+  </style>
+</head>
+
+<body>
+ 
+
+  <!-- Back to Home Button -->
+  <a href="index.html" class="back-to-home">
+    <i class='bx bx-home'></i> Back to Home
+  </a>
+
+  <!-- Terms of Service Content -->
+  <main class="privacy-content">
+    <div class="privacy-header">
+      <h1 class="privacy-title">Terms of Service</h1>
+      <p class="effective-date"><strong>Effective Date:</strong> May 28, 2025</p>
+    </div>
+
+    <section class="privacy-section">
+      <h2 class="section-title">1. Services Provided</h2>
+      <p class="section-content">
+        We offer professional photography services, including but not limited to event photography, portrait sessions, and the publication of images on galleries, websites, and promotional materials (subject to client consent).
+      </p>
+    </section>
+
+    <section class="privacy-section">
+      <h2 class="section-title">2. Booking and Payment</h2>
+      <ul class="privacy-list">
+        <li>A booking is considered confirmed only after communication with IT and your photographer (if required)</li>
+        <li>Full payment is due as agreed to in negotiations with IT and the photographer</li>
+        <li>Deposits are non-refundable unless it is necessary or just</li>
+      </ul>
+    </section>
+
+    <section class="privacy-section">
+      <h2 class="section-title">3. Client Responsibilities</h2>
+      <p class="section-content">You agree to:</p>
+      <ul class="privacy-list">
+        <li>Provide accurate information for scheduling and delivery</li>
+        <li>Arrive on time and be cooperative during sessions</li>
+        <li>Notify us in advance of any specific requirements or restrictions</li>
+        <li>Review and agree to any model or photo release forms if applicable</li>
+      </ul>
+    </section>
+
+    <section class="privacy-section">
+      <h2 class="section-title">4. Photo Usage and Consent</h2>
+      <p class="section-content">
+        We will <strong>only use your images for promotional purposes (website, gallery, social media, etc.) if you provide explicit consent</strong>.
+      </p>
+      <ul class="privacy-list">
+        <li>Consent must be given in writing or through an electronic agreement</li>
+        <li>You may revoke consent at any time in writing, and we will remove your images from display</li>
+        <li>Without consent, we will not use your identifiable images for any public or promotional purpose</li>
+      </ul>
+    </section>
+
+    <section class="privacy-section">
+      <h2 class="section-title">5. Intellectual Property</h2>
+      <ul class="privacy-list">
+        <li>All photographs remain the intellectual property of Captur, unless transferred by written agreement</li>
+        <li>Clients receive usage rights as outlined in their specific service agreement (e.g., personal use, print release, commercial use)</li>
+        <li>Unauthorized reproduction or redistribution of our images is prohibited unless stated otherwise</li>
+      </ul>
+    </section>
+
+    <section class="privacy-section">
+      <h2 class="section-title">6. Delivery and Editing</h2>
+      <ul class="privacy-list">
+        <li>Edited images will be delivered in high-resolution format within the agreed timeline</li>
+        <li>Raw/unprocessed files are not shared unless agreed upon in writing</li>
+        <li>Minor retouching is included; advanced editing may incur additional fees</li>
+      </ul>
+    </section>
+
+    <section class="privacy-section">
+      <h2 class="section-title">7. Cancellations and Rescheduling</h2>
+      <ul class="privacy-list">
+        <li>Clients may reschedule without penalty if the photographer is available at that time</li>
+        <li>Cancellations within [5] hours may result in a forfeited deposit</li>
+        <li>In the event of unforeseen circumstances, we reserve the right to reschedule with notice</li>
+      </ul>
+    </section>
+
+    <section class="privacy-section">
+      <h2 class="section-title">8. Limitation of Liability</h2>
+      <p class="section-content">We are not liable for:</p>
+      <ul class="privacy-list">
+        <li>Losses or damages due to delays, equipment failure, or unforeseen circumstances beyond our control</li>
+        <li>Client dissatisfaction resulting from a lack of communication of expectations</li>
+      </ul>
+      <p class="section-content">Our liability, in any case, will not exceed the total amount paid for the services.</p>
+    </section>
+
+    <section class="privacy-section">
+      <h2 class="section-title">9. Privacy</h2>
+      <p class="section-content">
+        Your privacy is important to us. Please refer to our Privacy Policy for how we collect, use, and protect your personal information and photographs.
+      </p>
+    </section>
+
+    <section class="privacy-section">
+      <h2 class="section-title">10. Changes to These Terms</h2>
+      <p class="section-content">
+        We reserve the right to modify these Terms of Service at any time. Updates will be posted on our website with a new effective date. Continued use of our services implies acceptance of the updated terms.
+      </p>
+    </section>
+
+    <section class="privacy-section">
+      <h2 class="section-title">11. Contact Us</h2>
+      <div class="contact-info">
+        <p class="section-content">
+          For questions or concerns about these Terms, please contact us at:
+        </p>
+        <a href="mailto:captur.nj@gmail.com" target="_blank" class="contact-email">captur.nj@gmail.com</a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Smooth scroll animation for sections
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.privacy-section').forEach(section => {
+      observer.observe(section);
+    });
+
+    // Mobile menu functionality
+    const checkBox = document.getElementById('check');
+    const navbar = document.querySelector('.navbar');
+    const navLinks = document.querySelectorAll('.navbar a');
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        checkBox.checked = false;
+      });
+    });
+  </script>
+</body>
+
+</html>
