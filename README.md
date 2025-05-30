@@ -1,1 +1,2 @@
 # Captur
+Captur is a responsive, photography-themed website designed to showcase visual content in an elegant and user-friendly layout. It features key sections such as About, Gallery, Services, and Contact, along with a lightbox gallery, animated scroll indicators, and a mobile-friendly navigation bar. The design emphasizes clean aesthetics and smooth user interaction, making it ideal for photographers or visual artists looking to present their work online.
